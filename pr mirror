@@ -1,0 +1,77 @@
+/* Magic Mirror Config Sample
+ *
+ * By Michael Teeuw http://michaelteeuw.nl
+ * MIT Licensed.
+ */
+
+var config = {
+	port: 8080,
+
+	language: 'en',
+	timeFormat: 24,
+	units: 'metric',
+
+	modules: [
+		{
+			module: 'alert',
+		},
+		{
+			module: 'clock',
+			position: 'top_left'
+		},
+		{
+			module: 'calendar',
+			header: 'Thai News',
+			position: 'top_left',
+			config: {
+				calendars: [
+					{
+						symbol: 'calendar-check-o ',
+						url: 'webcal://www.calendarlabs.com/templates/ical/Thailand-Holidays.ics'
+					}
+				]
+			}
+		},
+		{
+			module: 'compliments',
+			position: 'lower_third'
+		},
+		{
+			module: 'currentweather',
+			position: 'top_right',
+			config: {
+				location: 'Phrae',
+				locationID: '1607552',  //ID from http://www.openweathermap.org
+				appid: 'd0337070210f22e3244c2aba84211d16'
+			}
+		},
+		{
+			module: 'weatherforecast',
+			position: 'top_right',
+			header: 'สภาพอากาศ จังหวัดแพร่',
+			config: {
+	          		location: 'Phrae',
+				locationID: '1607552',  //ID from http://www.openweathermap.org
+				appid: 'd0337070210f22e3244c2aba84211d16'
+			}
+		},
+		{
+			module: 'newsfeed',
+			position: 'bottom_bar',
+			config: {
+				feeds: [
+					{
+						title: "ข่าวทันเหตุการณ์",
+						url: "http://www.thairath.co.th/rss/news"
+					}
+				],
+				showSourceTitle: true,
+				showPublishDate: true
+			}
+		},
+	]
+
+};
+
+/*************** DO NOT EDIT THE LINE BELOW ***************/
+if (typeof module !== 'undefined') {module.exports = config;}
